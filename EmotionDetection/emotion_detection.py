@@ -24,6 +24,16 @@ def emotion_detector (text_to_analyze):
     }
     dominant_emotion = max (scores, key=scores.get)
     
+    if response.status_code == 400:
+        return {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
+        
     return {
         'anger': anger_score,
         'disgust': disgust_score,
